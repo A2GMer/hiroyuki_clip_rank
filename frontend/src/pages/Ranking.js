@@ -61,7 +61,7 @@ const Ranking = () => {
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
-    axios.get("${API_BASE_URL}/api/ranking")
+    axios.get(`${API_BASE_URL}/api/ranking`)
       .then(response => {
         console.log("📡 API レスポンス:", response.data);
         setVideos(response.data);
