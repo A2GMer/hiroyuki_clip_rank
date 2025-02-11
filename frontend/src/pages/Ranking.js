@@ -3,6 +3,8 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "http://localhost:5000";
+
 const Container = styled.div`
   max-width: 800px;
   margin: 20px auto;
@@ -59,7 +61,7 @@ const Ranking = () => {
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/ranking")
+    axios.get("${API_BASE_URL}/api/ranking")
       .then(response => {
         console.log("📡 API レスポンス:", response.data);
         setVideos(response.data);

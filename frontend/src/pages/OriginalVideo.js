@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "http://localhost:5000";
+
 const OriginalVideo = () => {
   const { videoId } = useParams();
   const [cutVideos, setCutVideos] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/original/${videoId}`)
+    axios.get(`${API_BASE_URL}/api/original/${videoId}`)
       .then(response => setCutVideos(response.data))
       .catch(error => console.error("エラー:", error));
   }, [videoId]);
