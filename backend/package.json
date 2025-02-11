@@ -4,7 +4,8 @@
   "main": "fetch_cut_videos.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "postinstall": "node init_db.js && node fetch_videos.js && node fetch_cut_videos.js && node match_videos.js"
   },
   "keywords": [],
   "author": "",
